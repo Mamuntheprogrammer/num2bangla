@@ -1,5 +1,5 @@
 class TakaConverter:
-    def __init__(self, lang="en", currency="BDT", extension="Only", decimal_style="default", numerical_digits="en"):
+    def __init__(self, lang="en", currency="Taka", extension="Only", decimal_style="default", numerical_digits="en"):
         self.lang = lang
         self.currency = currency
         self.extension = extension
@@ -72,6 +72,10 @@ class TakaConverter:
         if isinstance(number, (int, float)):
             number = str(number)
         return ''.join(self.bn_digits.get(c, c) for c in str(number))
+
+    def convert_multiple(self, *numbers, return_numerical=False):
+        """Convert multiple numbers at once"""
+        return [self.convert_number(num, return_numerical) for num in numbers]
 
     def convert_number(self, number, return_numerical=False):
         # If numerical representation is requested
