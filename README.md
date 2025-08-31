@@ -47,6 +47,41 @@ converter = TakaConverter(lang="en", currency="USD", extension="Only")
 result = converter.convert_number(200)  # "Two Hundred USD Only"
 ```
 
+## Command Line Usage
+
+The package includes a command-line interface. After installation, you can use it directly from the terminal:
+
+```bash
+# Basic usage - converts to Bangla text
+num2bangla 42.25
+
+# Multiple numbers
+num2bangla 100 200.50 1234.56
+
+# English output
+num2bangla 42.25 --lang en
+
+# Custom currency and extension
+num2bangla 42.25 --currency BDT --extension Only
+
+# Decimal style (দশমিক)
+num2bangla 42.25 --decimal-style decimal
+
+# Bangla numerals only
+num2bangla 1234.56 --numerical-digits bn --numerical-only
+
+# Full example with all options
+num2bangla 42.25 --lang bn --currency টাকা --extension মাত্র --decimal-style decimal --numerical-digits bn
+```
+
+Available options:
+- `--lang`: Output language (`bn` or `en`)
+- `--currency`: Currency text (e.g., টাকা, Taka, BDT)
+- `--extension`: Extension text (e.g., মাত্র, Only)
+- `--decimal-style`: Decimal style (`default` or `decimal`)
+- `--numerical-digits`: Numerical digit style (`bn` or `en`)
+- `--numerical-only`: Output only numerical representation
+
 ## Features
 
 - Convert numbers to words in Bangla or English
@@ -54,6 +89,8 @@ result = converter.convert_number(200)  # "Two Hundred USD Only"
 - Customize extension text (e.g., "Only", "মাত্র")
 - Support for multiple numbers at once
 - Support for large numbers (up to crores)
+- Command-line interface (CLI)
+- Bengali numerical digits support
 
 ## License
 

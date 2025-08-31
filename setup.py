@@ -8,7 +8,7 @@ setup(
     author="Your Name",
     author_email="your.email@example.com",
     description="A package to convert numbers to Bengali/Bangla text and numerals with currency formatting support",
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/Mamuntheprogrammer/num2bangla",
     classifiers=[
@@ -17,4 +17,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
+    entry_points={
+        'console_scripts': [
+            'num2bangla=num2bangla.cli:main',
+        ],
+    },
 )
